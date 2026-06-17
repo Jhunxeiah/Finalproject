@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informational & Encyclopedic Websites</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        .nav-separator {
+            width: 1px;
+            height: 20px;
+            background: #ddd;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .feature-pic {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin: 0 0.5rem 1rem 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .badge-online {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+            border: 1px solid #ffc107;
+        }
+
+        .badge-priority {
+            background: rgba(244, 67, 54, 0.2);
+            color: #ff6b6b;
+            border: 1px solid #ff6b6b;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 1rem;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0 0.8rem 2rem;
+            font-size: 1rem;
+            color: #555;
+            border-left: 3px solid #667eea;
+            margin-bottom: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .features-list li:hover {
+            transform: translateX(5px);
+        }
+
+        .features-list strong {
+            color: #667eea;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .example-card {
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 2px solid #667eea;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .example-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.25);
+            border-color: #764ba2;
+        }
+
+        .example-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .example-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .features-highlight {
+            background: linear-gradient(135deg, #667eea05, #764ba205);
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .features-highlight h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Aesthetic Search History Styles */
+        .history-header {
+            padding: 12px 15px;
+            font-size: 0.75rem;
+            color: #764ba2;
+            border-bottom: 1px solid #f0f0f0;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            background: #fbfaff;
+        }
+        .history-item {
+            background: #fdfcff;
+        }
+        .history-item h4::before {
+            content: '🕒';
+            margin-right: 8px;
+            font-size: 0.8rem;
+            color: #764ba2;
+            opacity: 0.7;
+        }
+        .clear-btn {
+            background: #f0f0ff;
+            color: #764ba2;
+            border: 1px solid #e0e0ff;
+            border-radius: 15px;
+            padding: 4px 12px;
+            font-size: 0.65rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .clear-btn:hover {
+            background: #764ba2;
+            color: white;
+        }
+        .suggest-header {
+            padding: 12px 15px;
+            font-size: 0.75rem;
+            color: #999;
+            border-bottom: 1px solid #eee;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: #fafafa;
+        }
+
+        /* Header Author Styles */
+        .logo-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .author {
+            font-size: 0.75rem;
+            color: #764ba2;
+            font-weight: 600;
+            margin-top: -4px;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            position: relative;
+            margin-left: 1rem;
+        }
+        .search-input {
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            border: 1.5px solid #eee;
+            outline: none;
+            width: 180px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            background: #f9f9f9;
+        }
+        .search-input:focus {
+            width: 240px;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+        }
+        .search-results {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            background: white;
+            width: 320px;
+            max-height: 400px;
+            overflow-y: auto;
+            border-radius: 12px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+            display: none;
+            z-index: 1000;
+            border: 1px solid #f0f0f0;
+        }
+        .search-results.active { display: block; }
+        .search-result-item {
+            padding: 1rem;
+            border-bottom: 1px solid #f5f5f5;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-align: left;
+        }
+        .search-result-item:hover { background: #f0f4ff; }
+        .search-result-item h4 { font-size: 0.95rem; color: #333; margin-bottom: 4px; }
+        .search-result-item p { font-size: 0.8rem; color: #667eea; font-weight: 600; text-transform: uppercase; margin: 0; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-group">
+                <div class="logo">📚 Knowledge Hub</div>
+                <div class="author">by: Jhunxeiah Lumbad</div>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-separator"></div>
+                <a href="about.html" target="_blank">About</a>
+                <a href="resources.html" target="_blank">Resources</a>
+                <a href="index2.html" target="_blank">Social Media</a>
+                <a href="index3.html" target="_blank">News & Media</a>
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search Knowledge Hub...">
+                    <div class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Informational & Encyclopedic Websites</h1>
+        <p>Your Gateway to Global Knowledge</p>
+        <img class="hero-img" src="https://images.unsplash.com/photo-1496317899792-9d7dbcd928a1?auto=format&fit=crop&w=1400&q=80" alt="Library books and globe">
+    </div>
+
+    <div class="container">
+        <section class="section" id="about">
+            <h2>About Encyclopedic Websites</h2>
+            <p class="description">
+                Massive repositories of knowledge dedicated to educating the public or offering reference material on various topics. These platforms have revolutionized how we access and share information globally, providing instant access to vast collections of articles, research, and educational content.
+            </p>
+            
+            <div class="features-highlight">
+                <h4>💡 Why They Matter</h4>
+                <p>Encyclopedic websites democratize knowledge, making information accessible to everyone with an internet connection. They serve as primary sources for research, education, and general reference across countless disciplines.</p>
+            </div>
+        </section>
+
+        <section class="section" id="examples">
+            <h2>Popular Examples</h2>
+            <div class="examples-grid">
+                <div class="example-card" id="encyclopedia">
+                    <img class="feature-pic" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80" alt="Books on shelf">
+                    <h3>📖 Wikipedia</h3>
+                    <p>The world's largest free online encyclopedia with millions of articles across all subjects. Community-driven with open editing and comprehensive coverage of topics ranging from science to arts. A great first-stop for quick summaries and wide coverage.</p>
+                    <p><a href="about.html#encyclopedic" target="_blank">Learn more about encyclopedic sites</a></p>
+                </div>
+                <div class="example-card" id="britannica">
+                    <img class="feature-pic" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80" alt="Old encyclopedias on a table">
+                    <h3>📚 Britannica</h3>
+                    <p>A prestigious encyclopedia with expertly-curated content and rigorous editorial standards. Known for in-depth articles on academic topics with a focus on accuracy and authority. Excellent for authoritative references.</p>
+                    <p><a href="resources.html#factchecking" target="_blank">See related resources</a></p>
+                </div>
+                <div class="example-card" id="investopedia">
+                    <img class="feature-pic" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Financial charts on a screen">
+                    <h3>💰 Investopedia</h3>
+                    <p>Specialized encyclopedia focused on finance, investing, and business topics. Provides accessible explanations of complex financial concepts and investment strategies. Useful for learners and professionals in finance.</p>
+                    <p><a href="resources.html#databases" target="_blank">Research databases & guides</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="features">
+            <h2>Core Features</h2>
+            <div class="features-highlight">
+                <h4>Key Capabilities</h4>
+                <ul>
+                    <li><strong>Robust Internal Linking:</strong> Interconnected articles and clear navigation between related topics</li>
+                    <li><strong>Search Functionality:</strong> Powerful search tools to find content quickly</li>
+                    <li><strong>References & Citations:</strong> Clear source attribution and bibliographies for verification</li>
+                    <li><strong>Public / Peer-Edited Revision Histories:</strong> Transparent edit histories and community review processes</li>
+                </ul>
+            </div>
+            <ul class="features-list">
+                <li>
+                    <strong>Robust Internal Linking:</strong> Navigate between related topics seamlessly with interconnected articles and references
+                </li>
+                <li>
+                    <strong>Advanced Search Functionality:</strong> Powerful search tools help you find information quickly and efficiently across thousands of articles
+                </li>
+                <li>
+                    <strong>References & Citations:</strong> Comprehensive source citations and bibliographies support academic research and fact-checking
+                </li>
+                <li>
+                    <strong>Public or Peer-Edited Revision Histories:</strong> Track changes over time and see how articles evolve based on community contributions
+                </li>
+                <li>
+                    <strong>Multi-Language Support:</strong> Access content in numerous languages, making knowledge truly global
+                </li>
+                <li>
+                    <strong>Free Access:</strong> Most platforms provide free or freemium access to their vast content libraries
+                </li>
+                <li>
+                    <strong>Multimedia Content:</strong> Articles often include images, diagrams, audio, and video to aid understanding and learning
+                </li>
+                <li>
+                    <strong>Educational Guides:</strong> Many encyclopedic sites provide tutorials, how-to guides, and curated learning paths for deeper study
+                </li>
+            </ul>
+
+            <div class="features-highlight">
+                <h4>🎯 Accessibility</h4>
+                <p>These platforms are designed to be user-friendly and accessible to everyone, from students to researchers to casual learners. No special technical knowledge is required to benefit from their resources.</p>
+            </div>
+        </section>
+
+        <section class="section" style="text-align: center; background: linear-gradient(135deg, #667eea15, #764ba215);">
+            <h2>Start Exploring</h2>
+            <p class="description">
+                Dive into the world of encyclopedic knowledge. Whether you're researching for academic purposes, learning something new, or looking for quick reference material, these platforms have you covered.
+            </p>
+            <button class="cta-button">Discover More Resources</button>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Knowledge Hub | Celebrating the Power of Information</p>
+    </footer>
+
+    <script>
+        const searchData = [
+            { title: "Wikipedia", category: "Encyclopedia", url: "index.html#encyclopedia", keywords: "wiki, research, knowledge" },
+            { title: "Britannica", category: "Encyclopedia", url: "index.html#britannica", keywords: "academic, reference, history" },
+            { title: "Investopedia", category: "Encyclopedia", url: "index.html#investopedia", keywords: "finance, money, business" },
+            { title: "Facebook", category: "Social Media", url: "index2.html#facebook", keywords: "meta, connect, friends" },
+            { title: "Twitter / X", category: "Social Media", url: "index2.html#twitter", keywords: "news, tweets, x, platform" },
+            { title: "Instagram", category: "Social Media", url: "index2.html#instagram", keywords: "photos, reels, visual" },
+            { title: "TikTok", category: "Social Media", url: "index2.html#tiktok", keywords: "videos, trends, short-form" },
+            { title: "LinkedIn", category: "Social Media", url: "index2.html#linkedin", keywords: "jobs, career, professional" },
+            { title: "YouTube", category: "Social Media", url: "index2.html#youtube", keywords: "video, tutorials, entertainment" },
+            { title: "BBC", category: "News", url: "index3.html#bbc", keywords: "uk, international, world news" },
+            { title: "CNN", category: "News", url: "index3.html#cnn", keywords: "usa, cable, breaking news" },
+            { title: "Reuters", category: "News", url: "index3.html#reuters", keywords: "agency, factual, business" },
+            { title: "The New York Times", category: "News", url: "index3.html#nyt", keywords: "nyt, newspaper, investigative" },
+            { title: "Al Jazeera", category: "News", url: "index3.html#aljazeera", keywords: "middle east, global, perspective" },
+            { title: "The Guardian", category: "News", url: "index3.html#guardian", keywords: "uk, climate, politics" },
+            { title: "Fact-Checking Tools", category: "Resources", url: "resources.html#factchecking", keywords: "verify, snopes, truth" },
+            { title: "Online Safety", category: "Resources", url: "resources.html#safety", keywords: "security, privacy, hacking" },
+            { title: "Research Databases", category: "Resources", url: "resources.html#databases", keywords: "jstor, scholar, academic" },
+            { title: "Media Literacy", category: "Resources", url: "resources.html#courses", keywords: "learning, courses, education" },
+            { title: "Source Evaluation", category: "Resources", url: "resources.html#evaluation", keywords: "craap test, critical thinking, sources" },
+            { title: "Revision Histories", category: "Core Feature", url: "index.html#features", keywords: "public, peer-edited, revision histories, transparent, tracking" }
+        ];
+
+        const searchInput = document.querySelector('.search-input');
+        const searchResults = document.querySelector('.search-results');
+
+        const saveToHistory = (item) => {
+            let history = JSON.parse(localStorage.getItem('searchHistory') || '[]');
+            history = history.filter(h => h.url !== item.url);
+            history.unshift(item);
+            history = history.slice(0, 5);
+            localStorage.setItem('searchHistory', JSON.stringify(history));
+        };
+
+        const showRecommendations = () => {
+            searchResults.innerHTML = '';
+            
+            const history = JSON.parse(localStorage.getItem('searchHistory') || '[]');
+            if (history.length > 0) {
+                const historyHeader = document.createElement('div');
+                historyHeader.className = 'history-header';
+                historyHeader.innerHTML = '<span>Recent History</span><button id="clear-history" class="clear-btn">Clear All</button>';
+                searchResults.appendChild(historyHeader);
+                
+                document.getElementById('clear-history').onclick = (e) => {
+                    e.stopPropagation();
+                    localStorage.removeItem('searchHistory');
+                    showRecommendations();
+                };
+
+                history.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'search-result-item history-item';
+                    div.innerHTML = `<h4>${item.title}</h4><p>${item.category}</p>`;
+                    div.onclick = () => {
+                        saveToHistory(item);
+                        window.location.href = item.url;
+                    };
+                    searchResults.appendChild(div);
+                });
+            }
+
+            const suggestHeader = document.createElement('div');
+            suggestHeader.className = 'suggest-header';
+            suggestHeader.textContent = 'Suggested for you';
+            searchResults.appendChild(suggestHeader);
+
+            const recs = [searchData[0], searchData[3], searchData[9], searchData[15]]; // Wikipedia, Facebook, BBC, Fact-Checking
+            recs.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'search-result-item';
+                div.innerHTML = `<h4>${item.title}</h4><p>${item.category}</p>`;
+                div.onclick = () => {
+                    saveToHistory(item);
+                    window.location.href = item.url;
+                };
+                searchResults.appendChild(div);
+            });
+            searchResults.classList.add('active');
+        };
+
+        searchInput.addEventListener('focus', () => { if (searchInput.value.length === 0) showRecommendations(); });
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            searchResults.innerHTML = '';
+            if (query.length < 2) { 
+                if (query.length === 0) showRecommendations();
+                else searchResults.classList.remove('active'); 
+                return; 
+            }
+            const filtered = searchData.filter(item => 
+                item.title.toLowerCase().includes(query) || item.category.toLowerCase().includes(query) || item.keywords.toLowerCase().includes(query)
+            );
+            if (filtered.length > 0) {
+                filtered.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'search-result-item';
+                    div.innerHTML = `<h4>${item.title}</h4><p>${item.category}</p>`;
+                    div.onclick = () => {
+                        saveToHistory(item);
+                        window.location.href = item.url;
+                    };
+                    searchResults.appendChild(div);
+                });
+                searchResults.classList.add('active');
+            } else { searchResults.innerHTML = '<div class="search-result-item"><p>No results found</p></div>'; searchResults.classList.add('active'); }
+        });
+        document.addEventListener('click', (e) => { if (!e.target.closest('.search-container')) searchResults.classList.remove('active'); });
+    </script>
+</body>
+</html>

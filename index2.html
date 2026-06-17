@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Platforms - Knowledge Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        .nav-separator {
+            width: 1px;
+            height: 20px;
+            background: #ddd;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .feature-pic {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 1rem;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .platform-card {
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 2px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.25);
+            border-color: #764ba2;
+        }
+
+        .platform-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #667eea;
+        }
+
+        .platform-card .users {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 1rem;
+        }
+
+        .platform-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0 0.8rem 2rem;
+            border-left: 3px solid #667eea;
+            margin-bottom: 0.8rem;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .features-list strong {
+            color: #667eea;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-group">
+                <div class="logo">📚 Knowledge Hub</div>
+                <div class="author">by: Jhunxeiah Lumbad</div>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-separator"></div>
+                <a href="about.html" target="_blank">About</a>
+                <a href="resources.html" target="_blank">Resources</a>
+                <a href="index2.html">Social Media</a>
+                <a href="index3.html" target="_blank">News & Media</a>
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search Knowledge Hub...">
+                    <div class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Social Media Platforms</h1>
+        <p>Connecting Billions Worldwide</p>
+        <img class="hero-img" src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1400&q=80" alt="People using social media on phones">
+    </div>
+
+    <div class="container">
+        <section class="section">
+            <h2>Understanding Social Media</h2>
+            <p class="description">
+                Social media platforms have revolutionized human communication, enabling billions of people to connect, share, and interact in real-time across the globe. These platforms allow users to create content, build communities, and engage in conversations that shape culture and drive social movements.
+            </p>
+            <p class="description">
+                From networking and entertainment to activism and business, social media has become integral to modern life. Understanding how these platforms work and their impact is essential for navigating the digital world responsibly.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Major Social Media Platforms</h2>
+            <div class="platforms-grid">
+                <div class="platform-card" id="facebook">
+                    <img class="feature-pic" src="https://logo.svgcdn.com/logos/facebook.png?utm_source=chatgpt.com" alt="Mobile app social feed">
+                    <h3>👥 Facebook</h3>
+                    <div class="users">2.9+ Billion Users</div>
+                    <p>The world's largest social network connecting friends, family, and communities. Offers photo sharing, messaging, groups, and business pages. Strong tools for community management and advertising.</p>
+                    <ul class="features-list">
+                        <li><strong>Friend Networks:</strong> Connect with friends and family</li>
+                        <li><strong>Business Tools:</strong> Pages and ads for businesses</li>
+                        <li><strong>Events & Groups:</strong> Organize and join communities</li>
+                        <li><strong>Live Streaming:</strong> Real-time video broadcasting</li>
+                    </ul>
+                </div>
+
+                <div class="platform-card" id="twitter">
+                    <img class="feature-pic" src="https://logo.svgcdn.com/logos/x.svg?utm_source=chatgpt.com" alt="Tweet on mobile">
+                    <h3>🐦 Twitter/X</h3>
+                    <div class="users">500+ Million Users</div>
+                    <p>A platform for sharing short, real-time messages called tweets. Known for news breaking, trending topics, and public discourse. Useful for journalists and real-time updates.</p>
+                    <ul class="features-list">
+                        <li><strong>Tweets:</strong> 280-character messages</li>
+                        <li><strong>Trending Topics:</strong> See what's being talked about</li>
+                        <li><strong>Retweets & Likes:</strong> Share and engage with content</li>
+                        <li><strong>News Breaking:</strong> Often first platform for breaking news</li>
+                    </ul>
+                </div>
+
+                <div class="platform-card" id="instagram">
+                    <img class="feature-pic" src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram grid on phone">
+                    <h3>📸 Instagram</h3>
+                    <div class="users">2 Billion Users</div>
+                    <p>A visually-focused platform centered on sharing photos and videos. Popular for influencers, brands, and creative content creators. Powerful for visual storytelling and e-commerce.</p>
+                    <ul class="features-list">
+                        <li><strong>Photo Sharing:</strong> High-quality image posts</li>
+                        <li><strong>Stories:</strong> Temporary 24-hour content</li>
+                        <li><strong>Reels:</strong> Short-form video content</li>
+                        <li><strong>Shopping:</strong> Direct product links and purchases</li>
+                    </ul>
+                </div>
+
+                <div class="platform-card" id="tiktok">
+                    <img class="feature-pic" src="https://logo.svgcdn.com/logos/tiktok-icon.svg?utm_source=chatgpt.com" alt="Short video on phone">
+                    <h3>🎬 TikTok</h3>
+                    <div class="users">1.5+ Billion Users</div>
+                    <p>Short-form video platform dominated by Gen Z. Known for viral trends, creative challenges, and entertainment content. Highly effective for viral marketing and creative campaigns.</p>
+                    <ul class="features-list">
+                        <li><strong>Short Videos:</strong> 15-second to 10-minute videos</li>
+                        <li><strong>Trends & Challenges:</strong> Participatory content culture</li>
+                        <li><strong>For You Page:</strong> AI-powered content recommendations</li>
+                        <li><strong>Effects & Filters:</strong> Creative video editing tools</li>
+                    </ul>
+                </div>
+
+                <div class="platform-card" id="linkedin">
+                    <img class="feature-pic" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="LinkedIn">
+                    <h3>💼 LinkedIn</h3>
+                    <div class="users">900+ Million Users</div>
+                    <p>Professional networking platform for career development, job hunting, and business connections. Focuses on professional content and industry news. Great for recruiters and B2B networking.</p>
+                    <ul class="features-list">
+                        <li><strong>Professional Profiles:</strong> Showcase your career</li>
+                        <li><strong>Job Postings:</strong> Recruitment and career opportunities</li>
+                        <li><strong>Industry News:</strong> Professional content and insights</li>
+                        <li><strong>Networking:</strong> Build professional connections</li>
+                    </ul>
+                </div>
+
+                <div class="platform-card" id="youtube">
+                    <img class="feature-pic" src="https://logo.svgcdn.com/logos/youtube-icon.svg?utm_source=chatgpt.com" alt="Video player on screen">
+                    <h3>▶️ YouTube</h3>
+                    <div class="users">2.5+ Billion Users</div>
+                    <p>The world's largest video sharing platform. From entertainment to education, tutorials to documentaries, YouTube hosts diverse video content. Powerful for long-form educational content and monetization.</p>
+                    <ul class="features-list">
+                        <li><strong>Video Uploads:</strong> Share unlimited videos</li>
+                        <li><strong>Monetization:</strong> Earn from views and ads</li>
+                        <li><strong>Channels & Subscriptions:</strong> Follow content creators</li>
+                        <li><strong>Comments & Community:</strong> Viewer engagement</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Social Media Impact & Benefits</h2>
+            <ul class="features-list">
+                <li><strong>Global Connection:</strong> Connect with people across the world instantly</li>
+                <li><strong>Community Building:</strong> Find and join communities with shared interests</li>
+                <li><strong>Information Sharing:</strong> Spread news and important information rapidly</li>
+                <li><strong>Business Growth:</strong> Platforms for marketing and reaching customers</li>
+                <li><strong>Creative Expression:</strong> Share talents, skills, and creative work</li>
+                <li><strong>Social Movements:</strong> Organize and raise awareness for causes</li>
+                <li><strong>Entertainment:</strong> Access endless entertainment and content</li>
+                <li><strong>Professional Networking:</strong> Expand career opportunities and contacts</li>
+            </ul>
+        </section>
+
+        <section class="section" style="background: linear-gradient(135deg, #667eea15, #764ba215);">
+            <h2>Responsible Social Media Use</h2>
+            <p class="description">
+                While social media offers tremendous benefits, it's important to use these platforms responsibly. Be mindful of your digital footprint, verify information before sharing, respect others' privacy, and maintain healthy boundaries with screen time. Remember that what you post online can have lasting effects, so think before you share!
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Knowledge Hub | Understanding Digital Connection</p>
+    </footer>
+
+    <script>
+        const searchData = [
+            { title: "Wikipedia", category: "Encyclopedia", url: "index.html#encyclopedia", keywords: "wiki, research, knowledge" },
+            { title: "Britannica", category: "Encyclopedia", url: "index.html#britannica", keywords: "academic, reference, history" },
+            { title: "Investopedia", category: "Encyclopedia", url: "index.html#investopedia", keywords: "finance, money, business" },
+            { title: "Facebook", category: "Social Media", url: "index2.html#facebook", keywords: "meta, connect, friends" },
+            { title: "Twitter / X", category: "Social Media", url: "index2.html#twitter", keywords: "news, tweets, x, platform" },
+            { title: "Instagram", category: "Social Media", url: "index2.html#instagram", keywords: "photos, reels, visual" },
+            { title: "TikTok", category: "Social Media", url: "index2.html#tiktok", keywords: "videos, trends, short-form" },
+            { title: "LinkedIn", category: "Social Media", url: "index2.html#linkedin", keywords: "jobs, career, professional" },
+            { title: "YouTube", category: "Social Media", url: "index2.html#youtube", keywords: "video, tutorials, entertainment" },
+            { title: "BBC", category: "News", url: "index3.html#bbc", keywords: "uk, international, world news" },
+            { title: "CNN", category: "News", url: "index3.html#cnn", keywords: "usa, cable, breaking news" },
+            { title: "Reuters", category: "News", url: "index3.html#reuters", keywords: "agency, factual, business" },
+            { title: "The New York Times", category: "News", url: "index3.html#nyt", keywords: "nyt, newspaper, investigative" },
+            { title: "Al Jazeera", category: "News", url: "index3.html#aljazeera", keywords: "middle east, global, perspective" },
+            { title: "The Guardian", category: "News", url: "index3.html#guardian", keywords: "uk, climate, politics" },
+            { title: "Fact-Checking Tools", category: "Resources", url: "resources.html#factchecking", keywords: "verify, snopes, truth" },
+            { title: "Online Safety", category: "Resources", url: "resources.html#safety", keywords: "security, privacy, hacking" },
+            { title: "Research Databases", category: "Resources", url: "resources.html#databases", keywords: "jstor, scholar, academic" },
+            { title: "Media Literacy", category: "Resources", url: "resources.html#courses", keywords: "learning, courses, education" },
+            { title: "Source Evaluation", category: "Resources", url: "resources.html#evaluation", keywords: "craap test, critical thinking, sources" },
+            { title: "Revision Histories", category: "Core Feature", url: "index.html#features", keywords: "public, peer-edited, revision histories, transparent, tracking" }
+        ];
+
+        const searchInput = document.querySelector('.search-input');
+        const searchResults = document.querySelector('.search-results');
+
+        const saveToHistory = (item) => {
+            let history = JSON.parse(localStorage.getItem('searchHistory') || '[]');
+            history = history.filter(h => h.url !== item.url);
+            history.unshift(item);
+            history = history.slice(0, 5);
+            localStorage.setItem('searchHistory', JSON.stringify(history));
+        };
+
+        const showRecommendations = () => {
+            searchResults.innerHTML = '';
+            
+            const history = JSON.parse(localStorage.getItem('searchHistory') || '[]');
+            if (history.length > 0) {
+                const historyHeader = document.createElement('div');
+                historyHeader.className = 'history-header';
+                historyHeader.innerHTML = '<span>Recent History</span><button id="clear-history" class="clear-btn">Clear All</button>';
+                searchResults.appendChild(historyHeader);
+                
+                document.getElementById('clear-history').onclick = (e) => {
+                    e.stopPropagation();
+                    localStorage.removeItem('searchHistory');
+                    showRecommendations();
+                };
+
+                history.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'search-result-item history-item';
+                    div.innerHTML = `<h4>${item.title}</h4><p>${item.category}</p>`;
+                    div.onclick = () => {
+                        saveToHistory(item);
+                        window.location.href = item.url;
+                    };
+                    searchResults.appendChild(div);
+                });
+            }
+
+            const suggestHeader = document.createElement('div');
+            suggestHeader.className = 'suggest-header';
+            suggestHeader.textContent = 'Suggested for you';
+            searchResults.appendChild(suggestHeader);
+
+            const recs = [searchData[0], searchData[3], searchData[9], searchData[15]];
+            recs.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'search-result-item';
+                div.innerHTML = `<h4>${item.title}</h4><p>${item.category}</p>`;
+                div.onclick = () => {
+                    saveToHistory(item);
+                    window.location.href = item.url;
+                };
+                searchResults.appendChild(div);
+            });
+            searchResults.classList.add('active');
+        };
+
+        searchInput.addEventListener('focus', () => { if (searchInput.value.length === 0) showRecommendations(); });
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            searchResults.innerHTML = '';
+            if (query.length < 2) { 
+                if (query.length === 0) showRecommendations();
+                else searchResults.classList.remove('active'); 
+                return; 
+            }
+            const filtered = searchData.filter(item => 
+                item.title.toLowerCase().includes(query) || item.category.toLowerCase().includes(query) || item.keywords.toLowerCase().includes(query)
+            );
+            if (filtered.length > 0) {
+                filtered.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'search-result-item';
+                    div.innerHTML = `<h4>${item.title}</h4><p>${item.category}</p>`;
+                    div.onclick = () => {
+                        saveToHistory(item);
+                        window.location.href = item.url;
+                    };
+                    searchResults.appendChild(div);
+                });
+                searchResults.classList.add('active');
+            } else { searchResults.innerHTML = '<div class="search-result-item"><p>No results found</p></div>'; searchResults.classList.add('active'); }
+        });
+        document.addEventListener('click', (e) => { if (!e.target.closest('.search-container')) searchResults.classList.remove('active'); });
+    </script>
+</body>
+</html>

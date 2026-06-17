@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Knowledge Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        .nav-separator {
+            width: 1px;
+            height: 20px;
+            background: #ddd;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .feature-pic {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 1rem;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            border-radius: 12px;
+            padding: 2rem;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .resource-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #667eea;
+        }
+
+        .resource-card .category {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .resource-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .tips-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .tips-list li {
+            padding: 1rem 0 1rem 2rem;
+            border-left: 3px solid #667eea;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .tips-list li strong {
+            color: #667eea;
+        }
+
+        .more-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .more-btn:active {
+            transform: translateY(0);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+            }
+
+            /* Aesthetic Search History Styles */
+            .history-header {
+                padding: 12px 15px;
+                font-size: 0.75rem;
+                color: #764ba2;
+                border-bottom: 1px solid #f0f0f0;
+                text-transform: uppercase;
+                letter-spacing: 1.2px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-weight: 700;
+                background: #fbfaff;
+            }
+            .history-item {
+                background: #fdfcff;
+            }
+            .history-item h4::before {
+                content: '🕒';
+                margin-right: 8px;
+                font-size: 0.8rem;
+                color: #764ba2;
+                opacity: 0.7;
+            }
+            .clear-btn {
+                background: #f0f0ff;
+                color: #764ba2;
+                border: 1px solid #e0e0ff;
+                border-radius: 15px;
+                padding: 4px 12px;
+                font-size: 0.65rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            .clear-btn:hover {
+                background: #764ba2;
+                color: white;
+            }
+            .suggest-header {
+                padding: 12px 15px;
+                font-size: 0.75rem;
+                color: #999;
+                border-bottom: 1px solid #eee;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                background: #fafafa;
+            }
+
+            /* Header Author Styles */
+            .logo-group {
+                display: flex;
+                flex-direction: column;
+            }
+            .author {
+                font-size: 0.75rem;
+                color: #764ba2;
+                font-weight: 600;
+                margin-top: -4px;
+            }
+
+            /* Search Bar Styles */
+            .search-container {
+                position: relative;
+                margin-left: 1rem;
+            }
+            .search-input {
+                padding: 0.6rem 1.2rem;
+                border-radius: 25px;
+                border: 1.5px solid #eee;
+                outline: none;
+                width: 180px;
+                font-family: inherit;
+                font-size: 0.9rem;
+                transition: all 0.3s ease;
+                background: #f9f9f9;
+            }
+            .search-input:focus {
+                width: 240px;
+                border-color: #667eea;
+                background: white;
+                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+            }
+            .search-results {
+                position: absolute;
+                top: calc(100% + 10px);
+                right: 0;
+                background: white;
+                width: 320px;
+                max-height: 400px;
+                overflow-y: auto;
+                border-radius: 12px;
+                box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+                display: none;
+                z-index: 1000;
+                border: 1px solid #f0f0f0;
+            }
+            .search-results.active { display: block; }
+            .search-result-item {
+                padding: 1rem;
+                border-bottom: 1px solid #f5f5f5;
+                cursor: pointer;
+                transition: background 0.2s;
+                text-align: left;
+            }
+            .search-result-item:hover { background: #f0f4ff; }
+            .search-result-item h4 { font-size: 0.95rem; color: #333; margin-bottom: 4px; }
+            .search-result-item p { font-size: 0.8rem; color: #667eea; font-weight: 600; text-transform: uppercase; margin: 0; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-group">
+                <div class="logo">📚 Knowledge Hub</div>
+                <div class="author">by: Jhunxeiah Lumbad</div>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <div class="nav-separator"></div>
+                <a href="about.html" target="_blank">About</a>
+                <a href="resources.html">Resources</a>
+                <a href="index2.html" target="_blank">Social Media</a>
+                <a href="index3.html" target="_blank">News & Media</a>
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search Knowledge Hub...">
+                    <div class="search-results"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Additional Resources</h1>
+        <p>Tools and Guides for Digital Literacy</p>
+        <img class="hero-img" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1400&q=80" alt="Study desk with resources">
+    </div>
+
+    <div class="container">
+        <section class="section">
+            <h2>Essential Learning Resources</h2>
+            <p class="description">
+                We've compiled a collection of valuable resources to help you better understand different types of websites and develop strong digital literacy skills. These tools and guides cover everything from evaluating information sources to protecting your online privacy.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Resource Directory</h2>
+            <div class="resource-grid">
+                <div class="resource-card" id="factchecking">
+                    <div class="category">📚 Educational</div>
+                    <img class="feature-pic" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Research on laptop">
+                    <h3>Fact-Checking Tools</h3>
+                    <p>Learn how to verify information using tools like Snopes, FactCheck.org, and PolitiFact. Essential for evaluating the reliability of content you find online. Use these when encountering claims that seem surprising or extreme.</p>
+                    <p><a href="index.html#investopedia" target="_blank">Related finance topics</a></p>
+                    <a href="#tips-section" class="more-btn">Learn More</a>
+                </div>
+
+                <div class="resource-card" id="safety">
+                    <div class="category">🔒 Security</div>
+                    <img class="feature-pic" src="https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?utm_source=chatgpt.com" alt="Security lock on keyboard">
+                    <h3>Online Safety Guide</h3>
+                    <p>Comprehensive guide on protecting your personal information, recognizing phishing attempts, and maintaining secure passwords across different platforms. Learn about two-factor authentication and safe browsing habits.</p>
+                    <a href="#tips-section" class="more-btn">Learn More</a>
+                </div>
+
+                <div class="resource-card" id="databases">
+                    <div class="category">📖 Research</div>
+                    <img class="feature-pic" src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?utm_source=chatgpt.com" alt="Academic books and laptop">
+                    <h3>Academic Research Databases</h3>
+                    <p>Explore peer-reviewed journals, scholarly articles, and academic archives like Google Scholar, JSTOR, and Project MUSE for credible research materials. Learn how to access abstracts and interpret citations.</p>
+                    <a href="#tips-section" class="more-btn">Learn More</a>
+                </div>
+
+                <div class="resource-card" id="courses">
+                    <div class="category">🎓 Literacy</div>
+                    <img class="feature-pic" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Online course on tablet">
+                    <h3>Media Literacy Courses</h3>
+                    <p>Free online courses from platforms like Coursera and edX that teach critical thinking about media consumption and digital information evaluation. These courses often include practical exercises and assessments.</p>
+                    <a href="#tips-section" class="more-btn">Learn More</a>
+                </div>
+
+                <div class="resource-card" id="news">
+                    <div class="category">🌍 Global News</div>
+                    <h3>International News Outlets</h3>
+                    <p>Access diverse news perspectives from BBC, Reuters, AP News, and Al Jazeera to get well-rounded information on global events.</p>
+                    <a href="#tips-section" class="more-btn">Learn More</a>
+                </div>
+
+                <div class="resource-card" id="evaluation">
+                    <div class="category">💡 Critical Thinking</div>
+                    <h3>Source Evaluation Framework</h3>
+                    <p>Learn the CRAAP Test (Currency, Relevance, Authority, Accuracy, Purpose) to evaluate whether sources are trustworthy and appropriate for your needs.</p>
+                    <a href="#tips-section" class="more-btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="tips-section">
+            <h2>Tips for Digital Success</h2>
+            <ul class="tips-list">
+                <li><strong>Verify Information:</strong> Before sharing or relying on information, cross-reference it across multiple reputable sources.</li>
+                <li><strong>Check Author Credentials:</strong> Look for who wrote the article or created the content. Are they an expert in the field?</li>
+                <li><strong>Be Aware of Bias:</strong> All sources have some perspective. Understand the source's potential biases and motivations.</li>
+                <li><strong>Check Publication Dates:</strong> Ensure the information is current and relevant to your needs. Old data might not apply to current situations.</li>
+                <li><strong>Evaluate Citations:</strong> Good sources cite their information. If claims lack citations, be skeptical.</li>
+                <li><strong>Use Primary Sources:</strong> When possible, go to the original source rather than reading about what someone else said about it.</li>
+                <li><strong>Question Sensational Headlines:</strong> Be cautious of exaggerated claims. Good journalism aims for accuracy over drama.</li>
+                <li><strong>Protect Your Privacy:</strong> Be mindful of what personal information you share on social media and with websites.</li>
+            </ul>
+        </section>
+
+        <section class="section" style="background: linear-gradient(135deg, #667eea15, #764ba215);">
+            <h2>Keep Learning</h2>
+            <p class="description">
+                Digital literacy is an ongoing journey. Stay curious, keep questioning, and continue developing your skills in evaluating and navigating the vast information landscape of the internet. Remember: the most informed citizens are those who think critically about their sources!
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Knowledge Hub | Building Better Digital Citizens</p>
+    </footer>
+
+    <script>
+        const searchData = [
+            { title: "Wikipedia", category: "Encyclopedia", url: "index.html#encyclopedia", keywords: "wiki, research, knowledge" },
+            { title: "Britannica", category: "Encyclopedia", url: "index.html#britannica", keywords: "academic, reference, history" },
+            { title: "Investopedia", category: "Encyclopedia", url: "index.html#investopedia", keywords: "finance, money, business" },
+            { title: "Facebook", category: "Social Media", url: "index2.html#facebook", keywords: "meta, connect, friends" },
+            { title: "Twitter / X", category: "Social Media", url: "index2.html#twitter", keywords: "news, tweets, x, platform" },
+            { title: "Instagram", category: "Social Media", url: "index2.html#instagram", keywords: "photos, reels, visual" },
+            { title: "TikTok", category: "Social Media", url: "index2.html#tiktok", keywords: "videos, trends, short-form" },
+            { title: "LinkedIn", category: "Social Media", url: "index2.html#linkedin", keywords: "jobs, career, professional" },
+            { title: "YouTube", category: "Social Media", url: "index2.html#youtube", keywords: "video, tutorials, entertainment" },
+            { title: "BBC", category: "News", url: "index3.html#bbc", keywords: "uk, international, world news" },
+            { title: "CNN", category: "News", url: "index3.html#cnn", keywords: "usa, cable, breaking news" },
+            { title: "Reuters", category: "News", url: "index3.html#reuters", keywords: "agency, factual, business" },
+            { title: "The New York Times", category: "News", url: "index3.html#nyt", keywords: "nyt, newspaper, investigative" },
+            { title: "Al Jazeera", category: "News", url: "index3.html#aljazeera", keywords: "middle east, global, perspective" },
+            { title: "The Guardian", category: "News", url: "index3.html#guardian", keywords: "uk, climate, politics" },
+            { title: "Fact-Checking Tools", category: "Resources", url: "resources.html#factchecking", keywords: "verify, snopes, truth" },
+            { title: "Online Safety", category: "Resources", url: "resources.html#safety", keywords: "security, privacy, hacking" },
+            { title: "Research Databases", category: "Resources", url: "resources.html#databases", keywords: "jstor, scholar, academic" },
+            { title: "Media Literacy", category: "Resources", url: "resources.html#courses", keywords: "learning, courses, education" },
+            { title: "Source Evaluation", category: "Resources", url: "resources.html#evaluation", keywords: "craap test, critical thinking, sources" },
+            { title: "Revision Histories", category: "Core Feature", url: "index.html#features", keywords: "public, peer-edited, revision histories, transparent, tracking" }
+        ];
+
+        const searchInput = document.querySelector('.search-input');
+        const searchResults = document.querySelector('.search-results');
+
+        const saveToHistory = (item) => {
+            let history = JSON.parse(localStorage.getItem('searchHistory') || '[]');
+            history = history.filter(h => h.url !== item.url);
+            history.unshift(item);
+            history = history.slice(0, 5);
+            localStorage.setItem('searchHistory', JSON.stringify(history));
+        };
+
+        const showRecommendations = () => {
+            searchResults.innerHTML = '';
+            
+            const history = JSON.parse(localStorage.getItem('searchHistory') || '[]');
+            if (history.length > 0) {
+                const historyHeader = document.createElement('div');
+                historyHeader.className = 'history-header';
+                historyHeader.innerHTML = '<span>Recent History</span><button id="clear-history" class="clear-btn">Clear All</button>';
+                searchResults.appendChild(historyHeader);
+                
+                document.getElementById('clear-history').onclick = (e) => {
+                    e.stopPropagation();
+                    localStorage.removeItem('searchHistory');
+                    showRecommendations();
+                };
+
+                history.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'search-result-item history-item';
+                    div.innerHTML = `<h4>${item.title}</h4><p>${item.category}</p>`;
+                    div.onclick = () => {
+                        saveToHistory(item);
+                        window.location.href = item.url;
+                    };
+                    searchResults.appendChild(div);
+                });
+            }
+
+            const suggestHeader = document.createElement('div');
+            suggestHeader.className = 'suggest-header';
+            suggestHeader.textContent = 'Suggested for you';
+            searchResults.appendChild(suggestHeader);
+
+            const recs = [searchData[0], searchData[3], searchData[9], searchData[15]];
+            recs.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'search-result-item';
+                div.innerHTML = `<h4>${item.title}</h4><p>${item.category}</p>`;
+                div.onclick = () => {
+                    saveToHistory(item);
+                    window.location.href = item.url;
+                };
+                searchResults.appendChild(div);
+            });
+            searchResults.classList.add('active');
+        };
+
+        searchInput.addEventListener('focus', () => { if (searchInput.value.length === 0) showRecommendations(); });
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            searchResults.innerHTML = '';
+            if (query.length < 2) { 
+                if (query.length === 0) showRecommendations();
+                else searchResults.classList.remove('active'); 
+                return; 
+            }
+            const filtered = searchData.filter(item => 
+                item.title.toLowerCase().includes(query) || item.category.toLowerCase().includes(query) || item.keywords.toLowerCase().includes(query)
+            );
+            if (filtered.length > 0) {
+                filtered.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'search-result-item';
+                    div.innerHTML = `<h4>${item.title}</h4><p>${item.category}</p>`;
+                    div.onclick = () => {
+                        saveToHistory(item);
+                        window.location.href = item.url;
+                    };
+                    searchResults.appendChild(div);
+                });
+                searchResults.classList.add('active');
+            } else { searchResults.innerHTML = '<div class="search-result-item"><p>No results found</p></div>'; searchResults.classList.add('active'); }
+        });
+        document.addEventListener('click', (e) => { if (!e.target.closest('.search-container')) searchResults.classList.remove('active'); });
+    </script>
+</body>
+</html>
